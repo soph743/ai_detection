@@ -1,0 +1,105 @@
+WindowManager:
+    MainWindow:
+    SecondWindow:
+    ThirdWindow:
+
+<MainWindow>:
+    name: "main"
+
+    FloatLayout:
+
+        Button:
+            text: "Start Game"
+            size_hint: (0.4, 0.2)
+            font_size: 20
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+            on_press:
+                app.root.current = "second"
+                root.manager.transition.direction = "left"
+
+
+<SecondWindow>:
+    name: "second"
+
+    Image:
+        source: 'ai1.png'
+        size_hint: None, None
+        size: 400, 400
+        pos_hint: {"center_x": 0.5, "y": 0.4}
+
+    FloatLayout:
+
+    Button:
+        text: "quit"
+        size_hint: (0.2, 0.05)
+        pos_hint: {"center_x": 0.5, "y": 0.05}
+
+        on_press:
+            app.root.current = "main"
+            root.manager.transition.direction = "left"
+
+    Button:
+        text: "AI"
+        size_hint: (0.3, 0.1)
+        pos_hint: {"x": 0.2, "y": 0.2}
+
+        on_press:
+            app.root.current = "third"
+            root.manager.transition.direction = "left"
+
+    Button:
+        text: "not AI"
+        size_hint: (0.3, 0.1)
+        pos_hint: {"x": 0.5, "y": 0.2}
+
+        on_press:
+            root.btn()
+
+
+
+
+<ThirdWindow>:
+    name: "third"
+
+    FloatLayout:
+
+    Image:
+        source: 'ai2.png'
+        size_hint: None, None
+        size: 400, 400
+        pos_hint: {"center_x": 0.5, "y": 0.4}
+
+    Button:
+        text: "quit"
+        size_hint: (0.2, 0.05)
+        pos_hint: {"center_x": 0.5, "y": 0.05}
+
+        on_press:
+            app.root.current = "main"
+            root.manager.transition.direction = "left"
+
+    Button:
+        text: "not AI"
+        size_hint: (0.3, 0.1)
+        pos_hint: {"x": 0.2, "y": 0.2}
+
+        on_press:
+            root.btn()
+
+    Button:
+        text: "AI"
+        size_hint: (0.3, 0.1)
+        pos_hint: {"x": 0.5, "y": 0.2}
+
+
+        on_press:
+            app.root.current = "main"
+            root.manager.transition.direction = "left"
+
+<P>:
+    Label:
+        text: "Incorrect"
+        size_hint: 0.6, 0.2
+        pos_hint: {"x":0.2, "top":1}
+
